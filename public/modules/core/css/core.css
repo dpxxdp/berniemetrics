@@ -13,3 +13,26 @@
 .ng-valid.ng-dirty {
 	border-color: #78FA89;
 }
+
+.jumbo-background {
+	background: no-repeat center center fixed;
+	background-size: 100% auto;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	margin-top: 12%;
+	height: 400px;
+}
+
+.jumbo-text {
+	text-align: center;
+	color: #0040D0;
+	opacity: 1;
+}
+
+.fog {
+	background-color:rgba(256, 256, 256, 0.7);
+}
+
+/*'background-image':'url(modules/core/img/assets/bernie-crowd-2.jpg)'*/
