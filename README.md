@@ -1,8 +1,8 @@
 #Berniemetrics
 ###Watch It Bern
 
-[![Build Status](https://travis-ci.org/meanjs/mean.svg?branch=master)](https://travis-ci.org/meanjs/mean)
-[![Dependencies Status](https://david-dm.org/meanjs/mean.svg)](https://david-dm.org/meanjs/mean)
+[![Build Status](https://travis-ci.org/dpxxdp/berniemetrics.svg?branch=master)](https://travis-ci.org/dpxxdp/berniemetrics)
+[![Dependencies Status](https://david-dm.org/dpxxdp/berniemetrics.svg)](https://david-dm.org/dpxxdp/berniemetrics)
 
 We like numbers and we *love* the numbers that surround Bernie Sanders' incredible summer-2015 surge.  Berniemetrics aims to be the premier site for keeping track of all numbers Bernie.
 
