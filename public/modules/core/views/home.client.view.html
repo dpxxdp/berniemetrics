@@ -19,23 +19,46 @@
 		<div class="panel-body">
 			<div class="row">
 				<div class="col col-xs-12 col-md-2">
-					<a href="#!/crowds">
-					<div class="well text-center">
+					<button ng-style="{'width':'100%'}" class="btn btn-lg text-center disabled">
+						<h4 class="lead">The Polls</h4>
+						<span class="glyphicon glyphicon-check"></span>
+					</button>
+				</div>
+				<!--ng-click="go('/polls')"-->
+				<div class="col col-xs-12 col-md-2">
+					<button ng-style="{'width':'100%'}" class="btn btn-lg text-center disabled">
+						<h4 class="lead">New Media</h4>
+						<span class="glyphicon glyphicon-phone"></span>
+					</button>
+				</div>
+				<!--ng-click="go('/new_media')"-->
+				<div class="col col-xs-12 col-md-2">
+					<button ng-click="go('/crowds')" ng-style="{'width':'100%'}" class="btn btn-lg text-center">
 						<h4 class="lead">The Crowds</h4>
-						<span class="glyphicon glyphicon-bullhorn"></span>
-					</div>
-					</a>
+						<span class="glyphicon glyphicon-user"></span>
+					</button>
 				</div>
-				<div class="col col-xs-12 col-md-4">
-					<div class="well">
-
-					</div>
+				<div class="col col-xs-12 col-md-2">
+					<button ng-style="{'width':'100%'}" class="btn btn-lg text-center disabled">
+						<h4 class="lead">Old Media</h4>
+						<span class="glyphicon glyphicon-pencil"></span>
+					</button>
 				</div>
-				<div class="col col-xs-12 col-md-4">
-					<div class="well">
-
-					</div>
+				<!--ng-click="go('/old_media')"-->
+				<div class="col col-xs-12 col-md-2">
+					<button ng-style="{'width':'100%'}" class="btn btn-lg text-center disabled">
+						<h4 class="lead">The Money</h4>
+						<span class="glyphicon glyphicon-usd"></span>
+					</button>
 				</div>
+				<!--ng-click="go('/money')"-->
+				<div class="col col-xs-12 col-md-2">
+					<button ng-style="{'width':'100%'}" class="btn btn-lg text-center disabled">
+						<h4 class="lead">The Campaign</h4>
+						<span class="glyphicon glyphicon-user"></span>
+					</button>
+				</div>
+				<!-- ng-click="go('/campaign')"-->
 			</div>
 			<div class="row">
 

@@ -1,13 +1,15 @@
 <section data-ng-controller="CrowdsController">
     <div class="page-header">
-        <h1>Add Rally Crowd Info</h1>
+        <h1>Add Crowd Info</h1>
     </div>
     <div ng-show="viewState.warning" class="well">
         <div class="text-right">
             <button ng-click="toggleViewState('warning')" class="btn btn-sm glyphicon glyphicon-remove"></button>
         </div>
-        <p class="lead">You are acting in volunteer capacity.  Please represent Bernie's campaign with integrity and respect!
+        <p class="lead">You are acting in volunteer capacity.  Please represent Bernie's campaign with integrity and respect.
          The data you add below should be accurate, complete, and thoroughly sourced. Most of all, <b>thank you</b> for contributing!</p>
+        <p class="lead">Take your time with this.  Berniemetrics is aiming for quality over quantity.  We have a million volunteers, no need to crank these out fast.</p>
+        <p class="lead">Your name will be linked with this post and your sources made publicly available.  Take ownership over this page and be proud of it!</p>
     </div>
     <div class="col-md-12">
         <form class="form-horizontal" data-ng-submit="create()" novalidate>
@@ -37,25 +39,25 @@
                     <div class="controls">
                         <input type="url" data-ng-model="source" id="source" class="form-control" placeholder="Source" required>
                     </div>
-                    <label class="control-label" for="youtube">The Youtube Link to the Speech (not news commentary about the speech)</label>
+                    <label class="control-label" for="youtube">Youtube Link to the Speech (not news commentary about the speech)</label>
                     <div class="controls">
-                        <input type="url" data-ng-model="youtube" id="youtube" class="form-control" placeholder="Youtube Link (optional... but if it exists it would be SWEET to have it)" required>
+                        <input type="url" data-ng-model="youtube" id="youtube" class="form-control" placeholder="Youtube Link (optional because some don't exist... but if you can find it would be SWEET to have it)">
                     </div>
-                    <label class="control-label" for="image">A link to an image.  The biggest (literally- the more pixels the better), most breathtaking shot you can find of the event.</label>
+                    <label class="control-label" for="image">Awesome Image</label>
                     <div class="controls">
-                        <input type="url" data-ng-model="image" id="image" class="form-control" placeholder="Image Link (optional... likewise ^^^)" required>
+                        <input type="url" data-ng-model="image" id="image" class="form-control" placeholder="The biggest (literally- the more pixels the better), most breathtaking shot you can find of the event.">
                     </div>
-                    <label class="control-label" for="link1">Link to an (unbiased) news article about the event</label>
+                    <label class="control-label" for="link1">News Article</label>
                     <div class="controls">
-                        <input type="url" data-ng-model="link1" id="link1" class="form-control" placeholder="News Link (optional)" required>
+                        <input type="url" data-ng-model="link1" id="link1" class="form-control" placeholder="Let's encourage good journalism by avoiding click-bait titles, biased writing (even those favoring Bernie), and ad-ridden content" required>
                     </div>
-                    <label class="control-label" for="link1">Link to a different- still unbiased- news article about the event</label>
+                    <label class="control-label" for="link1">News Article (optional)</label>
                     <div class="controls">
-                        <input type="url" data-ng-model="link2" id="link2" class="form-control" placeholder="News Link (optional)" required>
+                        <input type="url" data-ng-model="link2" id="link2" class="form-control" placeholder="Quality News Link (optional)">
                     </div>
-                    <label class="control-label" for="link1">Link to a different- still unbiased, if you can find one- news article about the event</label>
+                    <label class="control-label" for="link1">News Article (optional)</label>
                     <div class="controls">
-                        <input type="url" data-ng-model="link3" id="link3" class="form-control" placeholder="News Link (optional)" required>
+                        <input type="url" data-ng-model="link3" id="link3" class="form-control" placeholder="Quality News Link (optional)">
                     </div>
                 </div>
                 <div class="form-group">

@@ -1,20 +1,20 @@
 <section data-ng-controller="CrowdsController" data-ng-init="findOne()">
 	<div class="page-header">
-		<h1>{{crowd.city}}</h1>
+		<h1>{{crowd.city}} - {{crowd.crowd_size}} strong</h1>
 		<h4>{{crowd.event_date | date:'mediumDate'}}</h4>
 	</div>
-	<div class="panel jumbo-background jumbo-text" ng-style="{'background-image':'{{crowd.image}}'}">
-		<div class="panel fog">
+	<div class="panel">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-					<h2>{{crowd.crowd_size}} strong</h2>
+					<img src="{{crowd.image}}" ng-style="{'width':'100%'}">
 				</div>
 			</div>
 		</div>
-	</div>
+
+	<!--url({{crowd.image}})-->
 
 	<table ng-show="crowd.youtube" class="table table-striped">
-		<th>Watch the rally</th>
+		<th>Watch the event</th>
 		<tr>
 			<td>{{crowd.youtube}}</td>
 		</tr>
@@ -42,12 +42,11 @@
 	</div>
 	<small>
 		<em class="text-muted">
-			This information was added
-			<span data-ng-bind="crowd.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="crowd.user.displayName"></span>
-			citing the following source: <a href="{{crowd.source}}">{{crowd.source}}</a>
-			<p><a href="#!/sigin">[Are we missing something?]</a></p>
+			<p>Compiled: <span data-ng-bind="crowd.created | date:'short'"></span><br>
+				By: <span data-ng-bind="crowd.user.displayName"></span><br>
+				Citation: <a href="{{crowd.source}}">{{crowd.source}}</a><br>
+				<a href="#!/sigin">[Is this information incomplete or incorrect?]</a>
+			</p>
 		</em>
 	</small>
 </section>
