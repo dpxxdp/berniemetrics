@@ -1,8 +1,6 @@
 #Berniemetrics
 ###Watch It Bern
 
-[![Build Status](https://travis-ci.org/dpxxdp/berniemetrics.svg?branch=master)](https://travis-ci.org/dpxxdp/berniemetrics)
-
 We like numbers and we *love* the numbers that surround Bernie Sanders' incredible summer-2015 surge.  Berniemetrics aims to be the premier site for keeping track of all numbers Bernie.
 
 We're still getting a few things off the ground right now, but in the mean time if you're interested in helping out- please email berniemetrics@gmail.com and we'll add you to the slack.  We're particularly looking for graphic designers, front end developers, and web developers who have experience with D3.
