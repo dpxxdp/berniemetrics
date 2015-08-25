@@ -1,8 +1,8 @@
 'use strict';
 
 // Crowds controller
-angular.module('crowds').controller('CrowdsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Crowds',
-	function($scope, $stateParams, $location, Authentication, Crowds) {
+angular.module('crowds').controller('CrowdsController', ['$scope', '$filter', '$stateParams', '$location', 'Authentication', 'Crowds',
+	function($scope, $filter, $stateParams, $location, Authentication, Crowds) {
 		$scope.authentication = Authentication;
 
 		// Create new Crowd
@@ -64,6 +64,7 @@ angular.module('crowds').controller('CrowdsController', ['$scope', '$stateParams
 
 		// Update existing Crowd
 		$scope.update = function() {
+			console.log('Test');
 			var crowd = $scope.crowd;
 
 			crowd.$update(function() {
@@ -92,6 +93,16 @@ angular.module('crowds').controller('CrowdsController', ['$scope', '$stateParams
 		$scope.toggleViewState = function(view){
 			$scope.viewState[view] = !$scope.viewState[view];
 		};
+
+		$scope.$watch('ui_event_date', function (newValue) {
+			if($scope.crowd) {
+				$scope.crowd.event_date = $filter('date')(newValue, 'yyyy-MM-dd');
+			}
+		});
+
+		$scope.$watch('crowd.event_date', function (newValue) {
+			$scope.ui_event_date = $filter('date')(newValue, 'yyyy-MM-dd');
+		});
 
 	}
 ]);

@@ -7,8 +7,6 @@ angular.module('core').controller('HomeController', ['$scope', '$location', 'Aut
 		$scope.authentication = Authentication;
 
 		$scope.go = function ( path ) {
-			console.log(path);
-			console.log($location.url());
 			$location.url( path );
 		};
 	}

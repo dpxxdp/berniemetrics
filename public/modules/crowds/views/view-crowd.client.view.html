@@ -16,19 +16,19 @@
 	<table ng-show="crowd.youtube" class="table table-striped">
 		<th>Watch the event</th>
 		<tr>
-			<td>{{crowd.youtube}}</td>
+			<td><a href="{{crowd.youtube}}">{{crowd.youtube}}</a></td>
 		</tr>
 	</table>
 	<table class="table table-striped">
 		<th>Or read about it</th>
 		<tr ng-show="crowd.link1">
-			<td>{{crowd.link1}}</td>
+			<td><a href="{{crowd.link1}}">{{crowd.link1}}</a></td>
 		</tr>
 		<tr ng-show="crowd.link2">
-			<td>{{crowd.link2}}</td>
+			<td><a href="{{crowd.link2}}">{{crowd.link2}}</a></td>
 		</tr>
 		<tr ng-show="crowd.link3">
-			<td>{{crowd.link3}}</td>
+			<td><a href="{{crowd.link3}}">{{crowd.link3}}</a></td>
 		</tr>
 	</table>
 

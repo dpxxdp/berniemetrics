@@ -53,7 +53,17 @@
 		it('$scope.find() should create an array with at least one Crowd object fetched from XHR', inject(function(Crowds) {
 			// Create sample Crowd using the Crowds service
 			var sampleCrowd = new Crowds({
-				name: 'New Crowd'
+				zip: '02110',
+				city: 'TestTown',
+				state: 'TS',
+				crowd_size: '5000',
+				event_date: '03/27/2013',
+				source: 'https://source.com',
+				youtube: 'https://youtube.com',
+				image: 'https://image.com',
+				link1: 'https://link.com',
+				link2: 'https://link2.com',
+				link3: 'https://link3.com'
 			});
 
 			// Create a sample Crowds array that includes the new Crowd
@@ -73,7 +83,17 @@
 		it('$scope.findOne() should create an array with one Crowd object fetched from XHR using a crowdId URL parameter', inject(function(Crowds) {
 			// Define a sample Crowd object
 			var sampleCrowd = new Crowds({
-				name: 'New Crowd'
+				zip: '02110',
+				city: 'TestTown',
+				state: 'TS',
+				crowd_size: '5000',
+				event_date: '03/27/2013',
+				source: 'https://source.com',
+				youtube: 'https://youtube.com',
+				image: 'https://image.com',
+				link1: 'https://link.com',
+				link2: 'https://link2.com',
+				link3: 'https://link3.com'
 			});
 
 			// Set the URL parameter
@@ -93,17 +113,47 @@
 		it('$scope.create() with valid form data should send a POST request with the form input values and then locate to new object URL', inject(function(Crowds) {
 			// Create a sample Crowd object
 			var sampleCrowdPostData = new Crowds({
-				name: 'New Crowd'
+				zip: '02110',
+				city: 'TestTown',
+				state: 'TS',
+				crowd_size: '5000',
+				event_date: '03/27/2013',
+				source: 'https://source.com',
+				youtube: 'https://youtube.com',
+				image: 'https://image.com',
+				link1: 'https://link.com',
+				link2: 'https://link2.com',
+				link3: 'https://link3.com'
 			});
 
 			// Create a sample Crowd response
 			var sampleCrowdResponse = new Crowds({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Crowd'
+				zip: '02110',
+				city: 'TestTown',
+				state: 'TS',
+				crowd_size: '5000',
+				event_date: '03/27/2013',
+				source: 'https://source.com',
+				youtube: 'https://youtube.com',
+				image: 'https://image.com',
+				link1: 'https://link.com',
+				link2: 'https://link2.com',
+				link3: 'https://link3.com'
 			});
 
 			// Fixture mock form input values
-			scope.name = 'New Crowd';
+			scope.zip = '02110';
+			scope.city = 'TestTown';
+			scope.state = 'TS';
+			scope.crowd_size = '5000';
+			scope.event_date = '03/27/2013';
+			scope.source = 'https://source.com';
+			scope.youtube = 'https://youtube.com';
+			scope.image = 'https://image.com';
+			scope.link1 = 'https://link.com';
+			scope.link2 = 'https://link2.com';
+			scope.link3 = 'https://link3.com';
 
 			// Set POST response
 			$httpBackend.expectPOST('crowds', sampleCrowdPostData).respond(sampleCrowdResponse);
@@ -113,9 +163,19 @@
 			$httpBackend.flush();
 
 			// Test form inputs are reset
-			expect(scope.name).toEqual('');
+			expect(scope.zip).toEqual('');
+			expect(scope.city).toEqual('');
+			expect(scope.state).toEqual('');
+			expect(scope.crowd_size).toEqual('');
+			expect(scope.event_date).toEqual('');
+			expect(scope.source).toEqual('');
+			expect(scope.youtube).toEqual('');
+			expect(scope.image).toEqual('');
+			expect(scope.link1).toEqual('');
+			expect(scope.link2).toEqual('');
+			expect(scope.link3).toEqual('');
 
-			// Test URL redirection after the Crowd was created
+			//Test URL redirection after the Crowd was
 			expect($location.path()).toBe('/crowds/' + sampleCrowdResponse._id);
 		}));
 
@@ -123,7 +183,17 @@
 			// Define a sample Crowd put data
 			var sampleCrowdPutData = new Crowds({
 				_id: '525cf20451979dea2c000001',
-				name: 'New Crowd'
+				zip: '02110',
+				city: 'TestTown',
+				state: 'TS',
+				crowd_size: '5000',
+				event_date: '03/27/2013',
+				source: 'https://source.com',
+				youtube: 'https://youtube.com',
+				image: 'https://image.com',
+				link1: 'https://link.com',
+				link2: 'https://link2.com',
+				link3: 'https://link3.com'
 			});
 
 			// Mock Crowd in scope
