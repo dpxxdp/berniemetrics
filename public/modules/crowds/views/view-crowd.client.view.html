@@ -1,0 +1,53 @@
+<section data-ng-controller="CrowdsController" data-ng-init="findOne()">
+	<div class="page-header">
+		<h1>{{crowd.city}}</h1>
+		<h4>{{crowd.event_date | date:'mediumDate'}}</h4>
+	</div>
+	<div class="panel jumbo-background jumbo-text" ng-style="{'background-image':'{{crowd.image}}'}">
+		<div class="panel fog">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<h2>{{crowd.crowd_size}} strong</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<table ng-show="crowd.youtube" class="table table-striped">
+		<th>Watch the rally</th>
+		<tr>
+			<td>{{crowd.youtube}}</td>
+		</tr>
+	</table>
+	<table class="table table-striped">
+		<th>Or read about it</th>
+		<tr ng-show="crowd.link1">
+			<td>{{crowd.link1}}</td>
+		</tr>
+		<tr ng-show="crowd.link2">
+			<td>{{crowd.link2}}</td>
+		</tr>
+		<tr ng-show="crowd.link3">
+			<td>{{crowd.link3}}</td>
+		</tr>
+	</table>
+
+	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == crowd.user._id))">
+		<a class="btn btn-primary" href="/#!/crowds/{{crowd._id}}/edit">
+			<i class="glyphicon glyphicon-edit"></i>
+		</a>
+		<a class="btn btn-primary" data-ng-click="remove();">
+			<i class="glyphicon glyphicon-trash"></i>
+		</a>
+	</div>
+	<small>
+		<em class="text-muted">
+			This information was added
+			<span data-ng-bind="crowd.created | date:'mediumDate'"></span>
+			by
+			<span data-ng-bind="crowd.user.displayName"></span>
+			citing the following source: <a href="{{crowd.source}}">{{crowd.source}}</a>
+			<p><a href="#!/sigin">[Are we missing something?]</a></p>
+		</em>
+	</small>
+</section>

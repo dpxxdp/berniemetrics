@@ -1,0 +1,31 @@
+<section data-ng-controller="CrowdsController" data-ng-init="find()">
+    <div class="page-header">
+        <div class="row">
+            <div class="col col-xs-10">
+                <h1>Crowds</h1>
+            </div>
+            <div ng-show="authentication.user" class="col col-xs-2">
+                <div class="text-right">
+                        <a href="#!/crowds/create"><button class="btn glyphicon glyphicon-plus"></button></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <th>City</th>
+        <th>Date</th>
+        <th>Crowd</th>
+        <tr data-ng-repeat="crowd in crowds">
+
+                <td><a data-ng-href="#!/crowds/{{crowd._id}}">{{crowd.city}}</a></td>
+                <td>{{crowd.event_date | date:'shortDate'}}</td>
+                <td>{{crowd.crowd_size}}</td>
+
+        </tr>
+    </table>
+    <div class="alert alert-warning text-center" data-ng-hide="!crowds.$resolved || crowds.length">
+    	Nobody has added any rallies yet, why don't you <a href="/#!/crowds/create">create one</a>?
+    </div>
+</section>

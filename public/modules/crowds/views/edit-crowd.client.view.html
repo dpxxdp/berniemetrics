@@ -1,0 +1,64 @@
+<section data-ng-controller="CrowdsController" data-ng-init="findOne()">
+    <div class="page-header">
+        <h1>Edit Crowd</h1>
+    </div>
+    <div class="col-md-12">
+        <form class="form-horizontal" data-ng-submit="update()" novalidate>
+            <fieldset>
+                <div class="form-group">
+                    <label class="control-label" for="city">City</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="crowd.city" id="city" class="form-control" placeholder="City" required>
+                    </div>
+                    <label class="control-label" for="state">State</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="crowd.state" id="state" class="form-control" placeholder="State" required>
+                    </div>
+                    <label class="control-label" for="zip">Zip (important for mapping)</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="crowd.zip" id="zip" class="form-control" placeholder="Zip" required>
+                    </div>
+                    <label class="control-label" for="crowd_size">Crowd Size</label>
+                    <div class="controls">
+                        <input type="number" data-ng-model="crowd.crowd_size" id="crowd_size" class="form-control" placeholder="Crowd Size" required>
+                    </div>
+                    <label class="control-label" for="event_date">The Event Date</label>
+                    <div class="controls">
+                        <input type="date" data-ng-model="crowd.event_date" id="event_date" class="form-control" placeholder="Event Date" required>
+                    </div>
+                    <label class="control-label" for="source">A (Reputable) Source</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="crowd.source" id="source" class="form-control" placeholder="Source" required>
+                    </div>
+                    <label class="control-label" for="youtube">The Youtube Link to the Speech (not news commentary about the speech)</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="crowd.youtube" id="youtube" class="form-control" placeholder="Youtube Link (optional... but if it exists it would be SWEET to have it)" required>
+                    </div>
+                    <label class="control-label" for="image">A link to an image.  The biggest (literally- the more pixels the better), most breathtaking shot you can find of the event.</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="crowd.image" id="image" class="form-control" placeholder="Image Link (optional... likewise ^^^)" required>
+                    </div>
+                    <label class="control-label" for="link1">Link to an (unbiased) news article about the event</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="crowd.link1" id="link1" class="form-control" placeholder="News Link (optional)" required>
+                    </div>
+                    <label class="control-label" for="link1">Link to a different- still unbiased- news article about the event</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="crowd.link2" id="link2" class="form-control" placeholder="News Link (optional)" required>
+                    </div>
+                    <label class="control-label" for="link1">Link to a different- still unbiased, if you can find one- news article about the event</label>
+                    <div class="controls">
+                        <input type="url" data-ng-model="crowd.link3" id="link3" class="form-control" placeholder="News Link (optional)" required>
+                    </div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update" class="btn btn-default">
+                </div>
+				<div data-ng-show="error" class="text-danger">
+					<strong data-ng-bind="error"></strong>
+				</div>
+            </fieldset>
+        </form>
+    </div>
+</section>
