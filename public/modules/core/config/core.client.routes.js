@@ -8,16 +8,24 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
 		// Home state routing
 		$stateProvider.
-		state('home', {
-			url: '/',
-			templateUrl: 'modules/core/views/home.client.view.html'
-		});
+			state('home', {
+				url: '/',
+				templateUrl: 'modules/core/views/home.client.view.html'
+			});
 
-		// Home state routing
+		// About state routing
 		$stateProvider.
 			state('about', {
 				url: '/about',
 				templateUrl: 'modules/core/views/about.client.view.html'
 			});
+
+		// Robots state routing
+		$stateProvider.
+			state('robots', {
+				url: '/robots',
+				templateUrl: 'modules/core/views/robots.client.view.html'
+			});
+
 	}
 ]);
