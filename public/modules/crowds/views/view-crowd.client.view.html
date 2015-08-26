@@ -3,10 +3,10 @@
 		<h1>{{crowd.city}} - {{crowd.crowd_size}} strong</h1>
 		<h4>{{crowd.event_date | date:'mediumDate'}}</h4>
 	</div>
-	<div class="panel">
+	<div ng-show="crowd.image" class="panel">
 			<div class="row">
 				<div class="col-md-12 col-sm-12 col-xs-12">
-					<img src="{{crowd.image}}" ng-style="{'width':'100%'}">
+					<img ng-src="{{crowd.image}}" ng-style="{'width':'100%'}">
 				</div>
 			</div>
 		</div>
