@@ -38,7 +38,17 @@ describe('Crowd CRUD tests', function() {
 		// Save a user to the test db and create new Crowd
 		user.save(function() {
 			crowd = {
-				name: 'Crowd Name'
+				zip: '02110',
+				city: 'TestTown',
+				state: 'TS',
+				crowd_size: '5000',
+				event_date: '03/27/2013',
+				source: 'https://source.com',
+				youtube: 'https://youtube.com',
+				image: 'https://image.com',
+				link1: 'https://link.com',
+				link2: 'https://link2.com',
+				link3: 'https://link3.com'
 			};
 
 			done();
@@ -75,7 +85,7 @@ describe('Crowd CRUD tests', function() {
 
 								// Set assertions
 								(crowds[0].user._id).should.equal(userId);
-								(crowds[0].name).should.match('Crowd Name');
+								(crowds[0].zip).should.match('02110');
 
 								// Call the assertion callback
 								done();
@@ -94,9 +104,19 @@ describe('Crowd CRUD tests', function() {
 			});
 	});
 
-	it('should not be able to save Crowd instance if no name is provided', function(done) {
-		// Invalidate name field
-		crowd.name = '';
+	it('should not be able to save Crowd instance if no zip is provided', function(done) {
+		// Invalidate zip field
+		crowd.zip = '';
+		crowd.city = 'TestTown';
+		crowd.state = 'TS';
+		crowd.crowd_size = '5000';
+		crowd.event_date = '03/27/2013';
+		crowd.source = 'https://source.com';
+		crowd.youtube = 'https://youtube.com';
+		crowd.imcrowdage = 'https://image.com';
+		crowd.link1 = 'https://link.com';
+		crowd.link2 = 'https://link2.com';
+		crowd.link3 = 'https://link3.com';
 
 		agent.post('/auth/signin')
 			.send(credentials)
@@ -114,7 +134,7 @@ describe('Crowd CRUD tests', function() {
 					.expect(400)
 					.end(function(crowdSaveErr, crowdSaveRes) {
 						// Set message assertion
-						(crowdSaveRes.body.message).should.match('Please fill Crowd name');
+						(crowdSaveRes.body.message).should.match('Zip required');
 						
 						// Handle Crowd save error
 						done(crowdSaveErr);
@@ -141,8 +161,18 @@ describe('Crowd CRUD tests', function() {
 						// Handle Crowd save error
 						if (crowdSaveErr) done(crowdSaveErr);
 
-						// Update Crowd name
-						crowd.name = 'WHY YOU GOTTA BE SO MEAN?';
+						// Update Crowd info
+						crowd.zip = '02110';
+						crowd.city = 'TestTown';
+						crowd.state = 'TS';
+						crowd.crowd_size = '5000';
+						crowd.event_date = '03/27/2013';
+						crowd.source = 'https://source.com';
+						crowd.youtube = 'https://youtube.com';
+						crowd.image = 'https://image.com';
+						crowd.link1 = 'https://link.com';
+						crowd.link2 = 'https://link2.com';
+						crowd.link3 = 'https://link3.com';
 
 						// Update existing Crowd
 						agent.put('/crowds/' + crowdSaveRes.body._id)
@@ -154,7 +184,7 @@ describe('Crowd CRUD tests', function() {
 
 								// Set assertions
 								(crowdUpdateRes.body._id).should.equal(crowdSaveRes.body._id);
-								(crowdUpdateRes.body.name).should.match('WHY YOU GOTTA BE SO MEAN?');
+								(crowdUpdateRes.body.zip).should.match('02110');
 
 								// Call the assertion callback
 								done();
@@ -172,7 +202,7 @@ describe('Crowd CRUD tests', function() {
 			// Request Crowds
 			request(app).get('/crowds')
 				.end(function(req, res) {
-					// Set assertion
+					// crowdSet assertion
 					res.body.should.be.an.Array.with.lengthOf(1);
 
 					// Call the assertion callback
@@ -192,7 +222,7 @@ describe('Crowd CRUD tests', function() {
 			request(app).get('/crowds/' + crowdObj._id)
 				.end(function(req, res) {
 					// Set assertion
-					res.body.should.be.an.Object.with.property('name', crowd.name);
+					res.body.should.be.an.Object.with.property('zip', crowd.zip);
 
 					// Call the assertion callback
 					done();

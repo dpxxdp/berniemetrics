@@ -17,7 +17,7 @@
         <th>City</th>
         <th>Date</th>
         <th>Crowd</th>
-        <tr data-ng-repeat="crowd in crowds">
+        <tr data-ng-repeat="crowd in crowds | orderBy:event_date">
 
                 <td><a data-ng-href="#!/crowds/{{crowd._id}}">{{crowd.city}}</a></td>
                 <td>{{crowd.event_date | date:'shortDate'}}</td>
