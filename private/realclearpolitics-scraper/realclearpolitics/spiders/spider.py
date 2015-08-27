@@ -1,7 +1,7 @@
 import scrapy
 from realclearpolitics.items import TableItem
 
-class spider(scrapy.Spider):
+class RcpSpider(scrapy.Spider):
     name = "realclearpoliticsSpider"
     start_urls = []
 
