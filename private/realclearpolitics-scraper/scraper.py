@@ -2,8 +2,7 @@ import sys, os
 args = sys.argv
 
 if (len(args) <= 1):
-    print("ERROR: Please provide source url")
-    print("Example : python scraper.py url output.csv")
+    raise ValueError('Please provide source url when calling scraper.py. Example : python scraper.py url output.csv')
 else:
     url = args[1]
     if (len(args) == 2):
