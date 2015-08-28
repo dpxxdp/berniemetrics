@@ -22,6 +22,13 @@ if (args.to_csv):
     os.system("scrapy crawl realclearpoliticsSpider -a url="+url+" -o "+output)
 
 else:
-    process = CrawlerProcess();
+    settings = {
+        'ITEM_PIPELINES' : {
+            'realclearpolitics.pipeline.PoolPipeline': 300,
+        },
+        'LOG_LEVEL' : 'ERROR'
+    }
+
+    process = CrawlerProcess(settings);
     process.crawl(RcpSpider, url)
     process.start()
