@@ -1,0 +1,20 @@
+[
+  {
+    "_id":"Number",
+    "user": {"_id":"Number","displayName":"String"},
+    "zip":"Number",
+    "city":"String",
+    "state":"String",
+    "crowd_size":"Number",
+    "event_date":"Date",
+    "source":"String",
+    "__v":"Number",
+    "created":"Date",
+    "link3":"String",
+    "link2":"String",
+    "link1":"String",
+    "image":"String",
+    "youtube":"String"
+  }
+]
+

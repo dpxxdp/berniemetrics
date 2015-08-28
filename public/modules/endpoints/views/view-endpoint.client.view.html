@@ -1,0 +1,36 @@
+<section data-ng-controller="EndpointsController" data-ng-init="findOne()">
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col col-xs-12 col-md-2">
+					<h1>{{endpoint.method}}</h1>
+					<h1>{{endpoint.path}}</h1>
+				</div>
+				<div class="col col-xs-12 col-md-10">
+					<h3>{{endpoint.description}}</h3>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<h5>Return Schema</h5>
+			<pre>{{endpoint.return}}</pre>
+			<h5>Return Example</h5>
+			<pre>{{endpoint.example}}</pre>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right" data-ng-show="(authentication.user)">
+				<a class="btn" href="/#!/endpoints/{{endpoint._id}}/edit">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn" data-ng-click="remove();">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+			<small>
+				<em class="text-muted">
+					We remind you to please not hit our API more than once per 2 seconds in any continuously running program.
+				</em>
+			</small>
+		</div>
+	</div>
+</section>

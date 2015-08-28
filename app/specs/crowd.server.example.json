@@ -1,0 +1,19 @@
+[
+  {
+    "_id":"123456789",
+    "user": {"_id":"<owner_id>","displayName":"<owner_displayName"},
+    "zip":01234,
+    "city":"<city>",
+    "state":"<state>",
+    "crowd_size":54321,
+    "event_date":"<event_date>",
+    "source":"<source_url>",
+    "__v":0,
+    "created":"<created_date>",
+    "link3":"<link_3>",
+    "link2":"<link_2>",
+    "link1":"<link_1>",
+    "image":"<image_link>",
+    "youtube":"<youtube_link>"
+  }
+]
