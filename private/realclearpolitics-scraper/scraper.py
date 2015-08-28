@@ -1,19 +1,27 @@
-import sys, os
-args = sys.argv
+import os, scrapy, argparse
+from realclearpolitics.spiders.spider import RcpSpider
+from scrapy.crawler import CrawlerProcess
+parser = argparse.ArgumentParser('Scrap realclearpolitics polls data')
+parser.add_argument('url', action="store")
+parser.add_argument('--csv', dest='to_csv', action='store_true')
+parser.add_argument('--output', dest='output', action='store')
+args = parser.parse_args()
+url = args.url
 
-if (len(args) <= 1):
-    raise ValueError('Please provide source url when calling scraper.py. Example : python scraper.py url output.csv')
-else:
-    url = args[1]
-    if (len(args) == 2):
+if (args.to_csv):
+    if args.output is None:
         filename = url.split('/')[-1].split('.')[0]
         output = filename + ".csv"
         print("No output file specified : using " + output)
     else:
-        output = sys.argv[2]
+        output = args.output
         if not output.endswith(".csv"):
             output = output + ".csv"
     if os.path.isfile(output):
         os.remove(output)
     os.system("scrapy crawl realclearpoliticsSpider -a url="+url+" -o "+output)
 
+else:
+    process = CrawlerProcess();
+    process.crawl(RcpSpider, url)
+    process.start()
