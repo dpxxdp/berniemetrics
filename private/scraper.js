@@ -6,16 +6,16 @@ var baseUrl = 'http://www.realclearpolitics.com/epolls/2016/president/',
 	scriptPath = 'realclearpolitics-scraper'
 
 function scrapeRCP() {
-	_.forEach(paths, function(statePath) {
-		scrapeState(statePath)
+	_.forEach(paths, function(statePath, stateCode) {
+		scrapeState(statePath, stateCode);
 	});
 }
 
-function scrapeState(path) {
+function scrapeState(path, code) {
 	var url = baseUrl + path;
 	var options = {
 		scriptPath: scriptPath,
-		args: [url]
+		args: [url, '--state_code', code]
 	};
 
 	PythonShell.run('scraper.py', options, function(err, results) {

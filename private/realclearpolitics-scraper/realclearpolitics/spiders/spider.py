@@ -5,8 +5,9 @@ class RcpSpider(scrapy.Spider):
     name = "realclearpoliticsSpider"
     start_urls = []
 
-    def __init__(self, url):
+    def __init__(self, url, state_code):
         self.url = url
+        self.state_code = state_code
 
     def start_requests(self):
         return [scrapy.FormRequest(self.url,
@@ -27,7 +28,7 @@ class RcpSpider(scrapy.Spider):
             values = line.css('td::text, td span::text, td a::text').extract()
             for i in range(nb_fields):
                 item[fieldNames[i]] = values[i]
-
+            item['locale'] = self.state_code
             items.append(item)
 
         return items

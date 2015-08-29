@@ -3,10 +3,12 @@ from realclearpolitics.spiders.spider import RcpSpider
 from scrapy.crawler import CrawlerProcess
 parser = argparse.ArgumentParser('Scrap realclearpolitics polls data')
 parser.add_argument('url', action="store")
+parser.add_argument('--state_code', action="store", default='')
 parser.add_argument('--csv', dest='to_csv', action='store_true')
 parser.add_argument('--output', dest='output', action='store')
 args = parser.parse_args()
 url = args.url
+state_code = args.state_code
 
 if (args.to_csv):
     if args.output is None:
@@ -30,5 +32,5 @@ else:
     }
 
     process = CrawlerProcess(settings);
-    process.crawl(RcpSpider, url)
+    process.crawl(RcpSpider, url, state_code)
     process.start()
