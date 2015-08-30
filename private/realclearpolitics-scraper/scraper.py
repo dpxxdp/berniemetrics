@@ -26,7 +26,7 @@ if (args.to_csv):
 else:
     settings = {
         'ITEM_PIPELINES' : {
-            'realclearpolitics.pipeline.PoolPipeline': 300,
+            'realclearpolitics.pipeline.PollPipeline': 300,
         },
         'LOG_LEVEL' : 'ERROR'
     }

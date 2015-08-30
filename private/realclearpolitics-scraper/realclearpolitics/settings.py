@@ -62,7 +62,7 @@ LOG_LEVEL = 'ERROR'
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'realclearpolitics.pipeline.PoolPipeline': 300,
+   'realclearpolitics.pipeline.PollPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
