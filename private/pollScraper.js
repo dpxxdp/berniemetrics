@@ -23,5 +23,3 @@ function scrapeState(path, code) {
 		console.log(results);
 	});
 }
-
-scrapeRCP()
