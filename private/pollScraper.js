@@ -15,7 +15,7 @@ function scrapeState(path, code) {
 	var url = baseUrl + path;
 	var options = {
 		scriptPath: scriptPath,
-		args: [url, '--state_code', code]
+		args: [url, '--state', code]
 	};
 
 	PythonShell.run('scraper.py', options, function(err, results) {
