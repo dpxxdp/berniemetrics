@@ -6,9 +6,10 @@ class RcpSpider(scrapy.Spider):
     start_urls = []
     columns = ['Poll','Date', 'Sample', 'Spread']
 
-    def __init__(self, url, state_code):
+    def __init__(self, url, state_code, race):
         self.url = url
         self.state_code = state_code
+        self.race = race
 
     def start_requests(self):
         return [scrapy.FormRequest(self.url,
@@ -35,6 +36,7 @@ class RcpSpider(scrapy.Spider):
                     item['field'][fieldNames[i]] = values[i]
 
             item['locale'] = self.state_code
+            item['race'] = self.race
             items.append(item)
 
         return items

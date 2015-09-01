@@ -4,11 +4,13 @@ from scrapy.crawler import CrawlerProcess
 parser = argparse.ArgumentParser('Scrap realclearpolitics polls data')
 parser.add_argument('url', action="store")
 parser.add_argument('--state', action="store", default='')
+parser.add_argument('--race', action="store", default='primary')
 parser.add_argument('--csv', dest='to_csv', action='store_true')
 parser.add_argument('--output', dest='output', action='store')
 args = parser.parse_args()
 url = args.url
 state = args.state
+race = args.race
 
 if (args.to_csv):
     if args.output is None:
@@ -32,5 +34,5 @@ else:
     }
 
     process = CrawlerProcess(settings);
-    process.crawl(RcpSpider, url, state)
+    process.crawl(RcpSpider, url, state, race)
     process.start()
