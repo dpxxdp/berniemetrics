@@ -4,6 +4,7 @@ from realclearpolitics.items import TableItem
 class RcpSpider(scrapy.Spider):
     name = "realclearpoliticsSpider"
     start_urls = []
+    columns = ['Poll','Date', 'Sample', 'Spread']
 
     def __init__(self, url, state_code):
         self.url = url
@@ -25,9 +26,14 @@ class RcpSpider(scrapy.Spider):
 
         for line in contentLines:
             item = TableItem()
+            item['field'] = {}
             values = line.css('td::text, td span::text, td a::text').extract()
             for i in range(nb_fields):
-                item[fieldNames[i]] = values[i]
+                if fieldNames[i] in RcpSpider.columns:
+                    item[fieldNames[i]] = values[i]
+                else:
+                    item['field'][fieldNames[i]] = values[i]
+
             item['locale'] = self.state_code
             items.append(item)
 
