@@ -31,7 +31,7 @@ class RcpSpider(scrapy.Spider):
             for i in range(nb_fields):
                 if fieldNames[i] in RcpSpider.columns:
                     item[fieldNames[i]] = values[i]
-                else:
+                elif values[i] != '--':
                     item['field'][fieldNames[i]] = values[i]
 
             for fieldName, value in self.extra_fields.iteritems():
