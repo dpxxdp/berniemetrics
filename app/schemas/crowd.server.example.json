@@ -1,0 +1,19 @@
+[
+  {
+    "_id":"55dd39e6d789bf6f0c6a58d4",
+    "user": {"_id":"<document_owner_id","displayName":"<document_owner>"},
+    "zip": 53705,
+    "city":"Madison",
+    "state":"WI",
+    "crowd_size": 9600,
+    "event_date":"2015-07-01T00:00:00.000Z",
+    "source":"https://berniesanders.com/press-release/",
+    "__v":0,
+    "created":"2015-08-26T04:00:38.501Z",
+    "link3":"http://www.breitbart.com/2016-presidential-race/2015/07/01/wisconsin/",
+    "link2":"http://www.washingtonpost.com/politics/2015/07/01.html",
+    "link1":"http://www.nbcnews.com/politics/2016-election/rally-n415926",
+    "image":"http://media1.fdncms.com/sevendaysvt/imager/u/original/2702562/_r4a1666_1.jpg",
+    "youtube":"https://www.youtube.com/watch?v=OewBDIwy-O4"
+  }
+]
