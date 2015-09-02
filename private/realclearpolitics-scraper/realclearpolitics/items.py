@@ -8,6 +8,7 @@
 from scrapy import Field
 from scrapy.item import BaseItem
 from collections import MutableMapping, OrderedDict
+from pprint import pformat, pprint
 
 class TableItem(MutableMapping, BaseItem):
 

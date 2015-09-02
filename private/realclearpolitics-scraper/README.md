@@ -15,18 +15,11 @@ sudo apt-get install python-twisted
 ```
 
 
-Usage
+Integration to the application
 ==========
 
-Use the scraper.py script
+To scrape all the data from `http://www.realclearpolitics.com/`, call the `scrapeRCP()` function inside [`/private/pollScraper.js`](../pollScraper.js).
 
-```sh
-python scraper.py url [output.csv]
-```
+The output will be sent to a callback function defined as an argument of `PythonShell.run()` in [`pollScrapper.js#21`](../pollScraper.js#L21)
 
-Example :
-
-```sh
-python scraper.py http://www.realclearpolitics.com/epolls/2016/president/us/2016_democratic_presidential_nomination-3824.html national.csv
-```
-
+Url to specific poll result pages are stored in [`/private/rcp-paths.js`](../rcp-paths.js). 
