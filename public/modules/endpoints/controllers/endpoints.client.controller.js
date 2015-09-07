@@ -14,7 +14,7 @@ angular.module('endpoints').controller('EndpointsController', ['$scope', '$state
 			try {
 				jsonSpec = JSON.parse(this.return);
 			} catch (e) {
-				$scope.error = "Return field contains invalid json.  Try <a href=\"http://jsonlint.com/\">jsonlint</a> for help.";
+				$scope.error = 'Return field contains invalid json.  Try <a href=\"http://jsonlint.com/\">jsonlint</a> for help.';
 				return;
 			}
 

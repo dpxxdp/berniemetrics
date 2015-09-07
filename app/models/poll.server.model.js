@@ -20,29 +20,34 @@ var PollSchema = new Schema({
 	},
 	locale: {
 		type: String,
-		required: 'Local Required',
+		required: 'Locale required',
 		trim: true
 	},
-	sample: {
+	race: {
+		type: String,
+		required: 'Race required',
+		trim: true
+	},
+	Sample: {
 		type: String,
 		required: 'Sample size required',
 		trim: true
 	},
-	poll: {
+	Poll: {
 		type: String,
 		required: 'Poll company required',
 		trim: true
 	},
-	spread: {
+	Spread: {
 		type: String,
 		trim: true
 	},
-	field: [{	}],
+	field: {	},
 	created: {
 		type: Date,
 		default: Date.now
 	},
-	scraper_id: {
+	user: {
 		type: String,
 		trim: true
 	}
