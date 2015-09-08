@@ -62,7 +62,7 @@ var insertsRemaining = 0;
 
 var closeIfFinished = function(db) {
 	insertsRemaining--;
-	console.log('insertsRemaining' + insertsRemaining);
+	console.log('insertsRemaining: ' + insertsRemaining);
 	if(insertsRemaining<=0) {
 		console.log('closing database connection...');
 		db.removeAllListeners();
@@ -99,7 +99,7 @@ var savePollsToMongo = function(rawList){
 	db.on('connected', function() {
 		console.log('Researcher: Opened database connection');
 		insertsRemaining = pollList.length;
-		console.log('pollList length' + pollList.length);  //TESTABC
+		console.log('pollList length: ' + pollList.length);  //TESTABC
 		setTimeout(function(db) {
 			if(db) {
 				console.log('Researcher: connection opened for too long. Timing out connection...');
@@ -141,7 +141,7 @@ var savePollsToMongo = function(rawList){
 
 var doResearch = function() {
 	//var pollJob = new CronJob('00 00 * * * *', function() {
-	var pollJob = new CronJob('*/15 * * * * *', function() {
+	var pollJob = new CronJob('*/10 * * * * *', function() {
 		console.log('Researcher: Running Poll cron job...');
 		pollScraper.scrapeRCP(savePollsToMongo);
 		//savePollsToMongo(null, testPoll2);

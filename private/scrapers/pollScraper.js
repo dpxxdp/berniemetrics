@@ -35,20 +35,32 @@ function testScrapeState(path, code, callback) {
 	callback(null, testArray);
 }
 
+var pagesRemaining = 0;
+
+var callbackIfDone = function(callback, resultList) {
+	pagesRemaining--;
+	//console.log('PollScraper: pages remaining to scrape: ' + pagesRemaining);
+	if(pagesRemaining <= 0) {
+		//console.log('PollScraper: Calling back: ' + resultList.length);
+		callback(resultList);
+	}
+};
+
 exports.scrapeRCP = function(callback) {
 	var resultList = [];
 	console.log('PollScraper: Begin scraping...');
 	_.forEach(paths, function(statePath, stateCode) {
-		scrapeState(statePath, stateCode, function(err, results) {
+		pagesRemaining++;
+		testScrapeState(statePath, stateCode, function(err, results) {
 			if(err) {
 				console.log('PollScraper: scraping failed failed for: ' + stateCode);
-				return;
+				callbackIfDone(callback, resultList);
 			}
 			else {
 				console.log('PollScraper:  Returning ' + results.length + ' polls');
 				resultList.push(results);
+				callbackIfDone(callback, resultList);
 			}
 		});
 	});
-	callback(resultList);
 };
