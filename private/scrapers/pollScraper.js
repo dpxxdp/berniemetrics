@@ -51,7 +51,7 @@ exports.scrapeRCP = function(callback) {
 	console.log('PollScraper: Begin scraping...');
 	_.forEach(paths, function(statePath, stateCode) {
 		pagesRemaining++;
-		testScrapeState(statePath, stateCode, function(err, results) {
+		scrapeState(statePath, stateCode, function(err, results) {
 			if(err) {
 				console.log('PollScraper: scraping failed failed for: ' + stateCode);
 				callbackIfDone(callback, resultList);
