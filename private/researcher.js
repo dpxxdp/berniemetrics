@@ -84,7 +84,7 @@ var savePollsToMongo = function(rawList){
 		return;
 	}
 
-	mongoose.connect(process.argv==='prod' ? settings.production.db : settings.development.db);
+	mongoose.connect(settings.production.db);
 	//mongoose.connect('mongodb://localhost/berniemetrics-dev');
 
 	var db = mongoose.connection;

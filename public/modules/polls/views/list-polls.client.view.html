@@ -4,11 +4,6 @@
             <div class="col col-xs-10">
                 <h1>The Polls</h1>
             </div>
-            <div ng-show="authentication.user" class="col col-xs-2">
-                <div class="text-right">
-                        <a href="#!/polls/create"><button class="btn glyphicon glyphicon-plus"></button></a>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -26,10 +21,16 @@
                 <td>{{poll.endDate | date:'shortDate'}}</td>
                 <td>{{poll.Poll}}</td>
                 <td>{{poll.Sample}}</td>
-
         </tr>
     </table>
-    <div class="alert alert-warning text-center" data-ng-hide="!polls.$resolved || polls.length">
-        Nobody has added any polls yet, why don't you <a href="/#!/polls/create">create one</a>?
+    <div class="panel-footer">
+        <small>
+            <em class="text-muted">
+                <p>Compiled by a robot<br>
+                    Citation: <a target="_blank" href="http://www.realclearpolitics.com/epolls/2016/president/us/2016_democratic_presidential_nomination-3824.html">http://www.realclearpolitics.com/epolls/2016/president/us/2016_democratic_presidential_nomination-3824.html</a><br>
+                    <a href="#!/sigin">[Is this information incomplete or incorrect?]</a>
+                </p>
+            </em>
+        </small>
     </div>
 </section>

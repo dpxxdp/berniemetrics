@@ -1,51 +1,10 @@
 <section data-ng-controller="PollsController">
     <div class="page-header">
-        <h1>New Poll</h1>
+        <h1>Create Poll</h1>
     </div>
     <div class="col-md-12">
-        <form class="form-horizontal" data-ng-submit="create()" novalidate>
-            <fieldset>
-                    <div class="form-group">
-                    <label class="control-label" for="locale">Locale (<a target="_blank" href="">abbreviations</a>)</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="locale" id="locale" class="form-control" placeholder="Locale" required>
-                    </div>
-                    <label class="control-label" for="race">Race</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="race" id="race" class="form-control" placeholder="Race" required>
-                    </div>
-                    <label class="control-label" for="poll">Poll</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="poll" id="poll" class="form-control" placeholder="Poll" required>
-                    </div>
-                    <label class="control-label" for="startDate">Start Date</label>
-                    <div class="controls">
-                        <input type="date" data-ng-model="startDate" id="startDate" class="form-control" placeholder="Start Date" required>
-                    </div>
-                    <label class="control-label" for="endDate">End Date</label>
-                    <div class="controls">
-                        <input type="date" data-ng-model="endDate" id="endDate" class="form-control" placeholder="End Date" required>
-                    </div>
-                    <label class="control-label" for="spread">Spread</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="spread" id="spread" class="form-control" placeholder="Spread">
-                    </div>
-                    <label class="control-label" for="sample">Sample</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="sample" id="sample" class="form-control" placeholder="Sample">
-                    </div>
-                    <label class="control-label" for="field">The Field</label>
-                    <div class="controls">
-                        <input type="text" data-ng-model="field" id="field" class="form-control" placeholder="The Field of Candidates">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-default">
-                </div>
-				<div data-ng-show="error" class="text-danger">
-					<strong data-ng-bind="error"></strong>
-				</div>
-            </fieldset>
-        </form>
+        <div class="well">
+            <p class="lead">The polls are being collected by a robot.  Nothing to see here folks!</p>
+        </div>
     </div>
 </section>
