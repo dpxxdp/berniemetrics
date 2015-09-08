@@ -1,21 +1,45 @@
-<section data-ng-controller="PollsController" data-ng-init="findOne()">
-	<div class="page-header">
-		<h1 data-ng-bind="poll.name"></h1>
+<section data-ng-controller="EndpointsController" data-ng-init="findOne()">
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col col-xs-12 col-md-2">
+					<h1>Locale: {{poll.locale}}</h1>
+					<h1>{{poll.Poll}}</h1>
+				</div>
+				<div class="col col-xs-12 col-md-10">
+					<h3>{{poll.Spread}}</h3>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<h5>Poll Dates</h5>
+			<pre>{{poll.startDate | date:'shortDate'}} - {{poll.endDate | date:'shortDate'}}</pre>
+			<h5>Sample Size</h5>
+			<pre>{{poll.Sample}}</pre>
+		</div>
+
+		<table class="table table-striped">
+			<th>The Field</th>
+			<tr ng-repeat="cand in poll.field">
+				<td>{{cand.candidate}}</td>
+				<td>{{cand.response}}</td>
+			</tr>
+		</table>
+		<div class="panel-footer">
+			<div class="pull-right" data-ng-show="(authentication.user)">
+				<a class="btn" data-ng-click="remove();">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+			<small>
+				<em class="text-muted">
+					<p>Compiled: <span data-ng-bind="poll.created | date:'short'"></span><br>
+						By: <span data-ng-bind="poll.user"></span><br>
+						Citation: <a href="{{poll.source}}">{{poll.source}}</a><br>
+						<a href="#!/sigin">[Is this information incomplete or incorrect?]</a>
+					</p>
+				</em>
+			</small>
+		</div>
 	</div>
-	<div class="pull-right" data-ng-show="((authentication.user) && (authentication.user._id == poll.user._id))">
-		<a class="btn btn-primary" href="/#!/polls/{{poll._id}}/edit">
-			<i class="glyphicon glyphicon-edit"></i>
-		</a>
-		<a class="btn btn-primary" data-ng-click="remove();">
-			<i class="glyphicon glyphicon-trash"></i>
-		</a>
-	</div>
-	<small>
-		<em class="text-muted">
-			Posted on
-			<span data-ng-bind="poll.created | date:'mediumDate'"></span>
-			by
-			<span data-ng-bind="poll.user.displayName"></span>
-		</em>
-	</small>
 </section>

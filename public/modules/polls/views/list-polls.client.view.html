@@ -1,19 +1,35 @@
 <section data-ng-controller="PollsController" data-ng-init="find()">
     <div class="page-header">
-        <h1>Polls</h1>
+        <div class="row">
+            <div class="col col-xs-10">
+                <h1>The Polls</h1>
+            </div>
+            <div ng-show="authentication.user" class="col col-xs-2">
+                <div class="text-right">
+                        <a href="#!/polls/create"><button class="btn glyphicon glyphicon-plus"></button></a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="list-group">
-        <a data-ng-repeat="poll in polls" data-ng-href="#!/polls/{{poll._id}}" class="list-group-item">
-			<small class="list-group-item-text">
-				Posted on
-				<span data-ng-bind="poll.created | date:'medium'"></span>
-				by
-				<span data-ng-bind="poll.user.displayName"></span>
-			</small>
-			<h4 class="list-group-item-heading" data-ng-bind="poll.name"></h4>
-        </a>
-    </div>
+
+    <table class="table table-striped">
+        <th>Spread</th>
+        <th>Locale</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Poll</th>
+        <th>Sample</th>
+        <tr data-ng-repeat="poll in polls | orderBy:-startDate">
+                <td>{{poll.Spread}}</td>
+                <td>{{poll.locale}}</td>
+                <td>{{poll.startDate | date:'shortDate'}}</td>
+                <td>{{poll.endDate | date:'shortDate'}}</td>
+                <td>{{poll.Poll}}</td>
+                <td>{{poll.Sample}}</td>
+
+        </tr>
+    </table>
     <div class="alert alert-warning text-center" data-ng-hide="!polls.$resolved || polls.length">
-    	No Polls yet, why don't you <a href="/#!/polls/create">create one</a>?
+        Nobody has added any polls yet, why don't you <a href="/#!/polls/create">create one</a>?
     </div>
 </section>

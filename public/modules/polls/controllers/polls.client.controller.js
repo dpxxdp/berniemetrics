@@ -9,7 +9,14 @@ angular.module('polls').controller('PollsController', ['$scope', '$stateParams',
 		$scope.create = function() {
 			// Create new Poll object
 			var poll = new Polls ({
-				name: this.name
+				startDate: this.startDate,
+				endDate: this.endDate,
+				locale: this.locale,
+				race: this.race,
+				Sample: this.sample,
+				Poll: this.poll,
+				Spread: this.spread,
+				field: this.field,
 			});
 
 			// Redirect after save
@@ -18,6 +25,14 @@ angular.module('polls').controller('PollsController', ['$scope', '$stateParams',
 
 				// Clear form fields
 				$scope.name = '';
+				$scope.startDate = '';
+				$scope.endDate = '';
+				$scope.locale = '';
+				$scope.race = '';
+				$scope.Sample = '';
+				$scope.Poll = '';
+				$scope.Spread = '';
+				$scope.field = '';
 			}, function(errorResponse) {
 				$scope.error = errorResponse.data.message;
 			});
@@ -25,7 +40,7 @@ angular.module('polls').controller('PollsController', ['$scope', '$stateParams',
 
 		// Remove existing Poll
 		$scope.remove = function(poll) {
-			if ( poll ) { 
+			if ( poll ) {
 				poll.$remove();
 
 				for (var i in $scope.polls) {
@@ -58,7 +73,7 @@ angular.module('polls').controller('PollsController', ['$scope', '$stateParams',
 
 		// Find existing Poll
 		$scope.findOne = function() {
-			$scope.poll = Polls.get({ 
+			$scope.poll = Polls.get({
 				pollId: $stateParams.pollId
 			});
 		};

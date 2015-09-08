@@ -73,7 +73,7 @@ exports.delete = function(req, res) {
  * List of Polls
  */
 exports.list = function(req, res) {
-	Poll.find().sort('-created').populate('user', 'displayName').exec(function(err, polls) {
+	Poll.find().sort('-created').exec(function(err, polls) {
 		if (err) {
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
@@ -88,9 +88,17 @@ exports.list = function(req, res) {
  * Poll middleware
  */
 exports.pollByID = function(req, res, next, id) {
+	console.log('finding poll by id...');
 	Poll.findById(id).populate('user', 'displayName').exec(function(err, poll) {
-		if (err) return next(err);
-		if (! poll) return next(new Error('Failed to load Poll ' + id));
+		if (err) {
+			console.log(err);
+			return next(err);
+		}
+		if (! poll) {
+			console.log(err);
+			return next(new Error('Failed to load Poll ' + id));
+		}
+		console.log(poll);
 		req.poll = poll ;
 		next();
 	});
