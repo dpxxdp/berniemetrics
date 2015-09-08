@@ -29,7 +29,8 @@ else:
         'ITEM_PIPELINES' : {
             'realclearpolitics.pipeline.PollPipeline': 300,
         },
-        'LOG_LEVEL' : 'ERROR'
+        'LOG_LEVEL' : 'ERROR',
+        'DOWNLOAD_HANDLERS' : {'s3': None,}
     }
 
     process = CrawlerProcess(settings);
