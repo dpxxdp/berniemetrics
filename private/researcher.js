@@ -5,11 +5,28 @@ var CronJob = require('cron').CronJob,
 	settings = require('./settings.js'),
 	_ = require('lodash'),
 	pollScraper = require('./scrapers/pollScraper.js'),
-	model = require('./models/polls.researcher.model.js');
+	model = require('./models/polls.researcher.model.js'),
+	Slack = require('node-slackr');
 
 mongoose.model('Poll', model.PollSchema);
 
 var Poll = mongoose.model('Poll');
+
+var sendTheGoodNews = function(noPolls) {
+	if(!process.env.SLACK_URL) { return; }
+	var slack = new Slack('https://hooks.slack.com/services/' + process.env.SLACK_URL,{
+		channel: '#progress',
+		username: 'jack',
+		icon_emoji: ':rabbit:'
+	});
+
+	var message = 'just found ' + noPolls + ' new polls!';
+
+	slack.notify(message, function(err, result){
+		console.log(err,result);
+	});
+
+};
 
 var djb2 = function(key) {
 	if (typeof key === 'string') {
@@ -59,15 +76,25 @@ var convertToListOfPolls = function(rawData) {
 
 //keeping track of mongoose inserts
 var insertsRemaining = 0;
+var newPolls = 0;
 
 var closeIfFinished = function(db) {
 	insertsRemaining--;
 	console.log('insertsRemaining: ' + insertsRemaining);
 	if(insertsRemaining<=0) {
+		if(newPolls > 0) {
+			sendTheGoodNews(newPolls);
+		}
+		newPolls = 0;
 		console.log('closing database connection...');
 		db.removeAllListeners();
 		db.close();
 	}
+};
+
+var successfulFinish = function(db) {
+	newPolls++;
+	closeIfFinished(db);
 };
 
 var savePollsToMongo = function(rawList){
@@ -130,7 +157,7 @@ var savePollsToMongo = function(rawList){
 							closeIfFinished(db);
 						} else {
 							console.log('Researcher: successfully saved poll');
-							closeIfFinished(db);
+							successfullFinish(db);
 						}
 					});
 				}
