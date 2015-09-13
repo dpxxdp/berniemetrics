@@ -1,4 +1,21 @@
 exports.paths = {
+	us: 'us/2016_democratic_presidential_nomination-3824.html',
 	nv: 'nv/nevada_democratic_presidential_caucus-5337.html',
-	us: 'us/2016_democratic_presidential_nomination-3824.html'
+	ma: 'ma/massachusetts_democratic_presidential_primary-3891.html',
+	nh: 'nh/new_hampshire_democratic_presidential_primary-3351.html',
+	fl: 'fl/florida_democratic_presidential_primary-3556.html',
+	oh: 'oh/ohio_democratic_presidential_primary-5313.html',
+	sc: 'sc/south_carolina_democratic_presidential_primary-4167.html',
+	nc: '/nc/north_carolina_democratic_presidential_primary-5175.html',
+	ca: 'ca/california_democratic_presidential_primary-5321.html',
+	va: 'va/virginia_democratic_presidential_primary-3922.html',
+	mo: 'mo/missouri_democratic_presidential_primary-5606.html',
+	pa: 'pa/pennsylvania_democratic_presidential_primary-4249.html',
+	tx: 'tx/texas_democratic_presidential_primary-4158.html',
+	il: 'il/illinois_democratic_presidential_primary-5567.html',
+	ct: 'ct/connecticut_democratic_presidential_primary-5353.html',
+	ny: 'ny/new_york_democratic_presidential_primary-4221.html',
+	ga: 'ga/georgia_democratic_presidential_primary-5623.html',
+	mi: 'mi/michigan_democratic_presidential_primary-5224.html',
+	ia: 'ia/iowa_democratic_presidential_caucus-3195.html'
 };
